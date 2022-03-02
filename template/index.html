@@ -1,0 +1,52 @@
+<html>
+<header>
+  <title>@window_title</title>
+  <style>
+    body {
+      margin: 1em;
+    }
+    a {
+      text-decoration: none;
+    }
+    table {
+      width: 100%;
+      font-size: 14px;
+    }
+    .name {
+      text-align: left;
+      width: 100%;
+    }
+    .name a {
+      min-width: 1em;
+      display: inline-block;
+    }
+    .time, .size {
+      text-align: right;
+      font-family: monospace;
+      white-space: nowrap;
+      padding-right: 1em;
+    }
+  </style>
+</header>
+
+<body>
+  <h1>@title</h1>
+
+  <table>
+    <thead><tr>
+      <th class="time">time</th>
+      <th class="size">size</th>
+      <th class="name">name</th>
+    </tr></thead>
+    <tbody>
+    @for item in list 
+    @if item.is_dir
+      @include 'dir.html'
+    @else
+      @include 'file.html'
+    @end
+    @end
+    </tbody>
+    </table>
+  </body>
+</html>
